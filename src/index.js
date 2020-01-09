@@ -4,7 +4,10 @@ import App from "./App";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import { createStore } from "redux";
+import rootReducer from "./store/reducers/rootReducer";
+
+export const store = createStore(rootReducer);
 
 const app = (
   <Provider store={store}>
