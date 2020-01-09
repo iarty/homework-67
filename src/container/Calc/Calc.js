@@ -3,6 +3,7 @@ import Keyboard from "../../components/Keyboard/Keyboard";
 import Input from "../../components/Input/Input";
 import { connect } from "react-redux";
 import { keyPressed } from "../../store/actions/calc";
+import { bindActionCreators } from "redux";
 
 class Calc extends Component {
   render() {
@@ -24,8 +25,7 @@ const mapStateToProps = state => ({
   value: state.value
 });
 
-const mapDispatchToProps = dispatch => ({
-  keyPressed: event => dispatch(keyPressed(event))
-});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ keyPressed }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calc);

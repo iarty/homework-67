@@ -13,7 +13,8 @@ export default function rootReducer(state = initialState, action) {
       return { ...state, value: "" };
     }
     case GET_RESULT: {
-      return { ...state, value: action.payload };
+      // eslint-disable-next-line no-eval
+      return { ...state, value: eval(state.value) };
     }
 
     default:
